@@ -1,0 +1,63 @@
+"What is binding, and why would I want to do it to my data?
+
+Data visualization is a process of mapping data to visuals. Data in, visual properties out. Maybe bigger numbers make taller bars, or special categories trigger brighter colors. The mapping rules are up to you.
+
+With D3, we bind our data input values to elements in the DOM. Binding is like “attaching” or associating data to specific elements, so that later you can reference those values to apply mapping rules. Without the binding step, we have a bunch of data-less, un-mappable DOM elements. No one wants that."
+
+[http://alignedleft.com/tutorials/d3/binding-data]
+
+
+
+----------
+
+
+"A Note on Classes
+
+Note that an element’s class is stored as an HTML attribute. The class, in turn, is used to reference a CSS style rule. This may cause some confusion because there is a difference between setting a class (from which styles are inferred) and applying a style directly to an element. You can do both with D3. Although you should use whatever approach makes the most sense to you, I recommend using classes for properties that are shared by multiple elements, and applying style rules directly only when deviating from the norm."
+
+[http://alignedleft.com/tutorials/d3/drawing-divs]
+
+
+----------
+
+
+"How does D3 automatically expand our chart as needed?
+
+d3.select("body").selectAll("div")
+    .data(dataset)  // <-- The answer is here!
+    .enter()
+    .append("div")
+    .attr("class", "bar")
+    .style("height", function(d) {
+        var barHeight = d * 5;
+        return barHeight + "px";
+    });
+Give data() ten values, and it will loop through ten times. Give it one million values, and it will loop through one million times. (Just be patient.)
+
+That is the power of data() — being smart enough to loop through the full length of whatever data set you throw at it, executing each method below it in the chain, while updating the context in which each method operates, so d always refers to the current datum at that point in the loop.
+
+That may be a mouthful, and if it all doesn’t make sense yet, it will soon. I encourage you to save the source code from the sample HTML pages above, tweak the dataset values, and note how the bar chart changes.
+
+Remember, the data is driving the visualization — not the other way around."
+
+[http://alignedleft.com/tutorials/d3/the-power-of-data]
+
+
+
+
+-------------
+
+
+
+"The trick with data visualization, of course, is choosing appropriate mappings, so the visual expression of your data is understandable and useful for the viewer."
+
+[http://alignedleft.com/tutorials/d3/drawing-svgs]
+
+
+
+-----------
+
+
+"SCALES"
+
+[http://alignedleft.com/tutorials/d3/scales]
